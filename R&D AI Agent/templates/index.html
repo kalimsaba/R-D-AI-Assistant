@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>R&D Tax Assistant</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #35495e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 400px;
+      font-size: 16px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #42b983;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #369f6c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>R&D Tax Assistant</h1>
+    <p>Enter your project notes below to generate structured R&D responses</p>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <form method="POST">
+        <label for="project_description"><strong>Project Description:</strong></label><br>
+        <textarea name="project_description" id="project_description" required></textarea><br>
+        <button type="submit">Generate Section Responses</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 R&D Tax Assistant • All rights reserved
+  </footer>
+
+</body>
+</html>

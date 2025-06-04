@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generated R&D Responses</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #35495e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .response-section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .response-section h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .chatbox-container {
+      margin-top: 40px;
+    }
+
+    .chatbox {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      max-height: 300px;
+      overflow-y: auto;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .message {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .user {
+      font-weight: bold;
+      color: #2980b9;
+    }
+
+    .bot {
+      font-weight: bold;
+      color: #27ae60;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      font-size: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    input[type="submit"] {
+      margin-top: 15px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #42b983;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #369f6c;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      color: #35495e;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>R&D Section Responses</h1>
+    <p>Below are the generated outputs and a space to refine them through chat.</p>
+  </header>
+
+  <main>
+
+    {% for section, response in responses.items() %}
+      <div class="response-section">
+        <h2>{{ section.replace("_", " ").title() }}</h2>
+        <p>{{ response }}</p>
+      </div>
+    {% endfor %}
+
+    <div class="chatbox-container">
+      <h2>Chatbox — Ask for Refinements or Clarifications</h2>
+      <div class="chatbox" id="chatbox">
+        {% for entry in chat_history %}
+          <div class="message"><span class="user">You:</span> {{ entry.user }}</div>
+          <div class="message"><span class="bot">AI:</span> {{ entry.ai }}</div>
+        {% endfor %}
+      </div>
+
+      <form method="POST" action="/chatbox">
+        <label for="user_input"><strong>Refine or ask something:</strong></label><br>
+        <textarea name="user_input" rows="3" required></textarea><br>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+
+    <a href="/">&larr; Back</a>
+
+  </main>
+
+  <footer>
+    &copy; 2025 R&D Tax Assistant • All rights reserved
+  </footer>
+
+</body>
+</html>
